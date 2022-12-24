@@ -1,0 +1,30 @@
+{
+  "name": "jee6-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node dist/index.js"
+  },
+  "author": "jee6",
+  "license": "ISC",
+  "dependencies": {
+    "@decorators/express": "^2.7.0",
+    "@types/cors": "^2.8.13",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "ffmpeg-static": "^5.1.0",
+    "lodash": "^4.17.21",
+    "mysql2": "^2.3.3",
+    "sanitize-filename": "^1.6.3",
+    "ytdl-core": "^4.11.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.17",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.9.4"
+  }
+}
