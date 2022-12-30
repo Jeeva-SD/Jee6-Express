@@ -11,17 +11,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Youtube = void 0;
 const database_1 = require("../database");
+const queries_1 = require("../database/queries");
 const helper_1 = require("../helper");
 const index_1 = require("./../lib/result/index");
 class Youtube {
     constructor() {
         this.db = new database_1.DB;
     }
-    list() {
+    list(params) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const { description } = params;
+                console.log(description);
                 const key = 'videoId';
-                const result = yield this.db.execute(database_1.getVideos);
+                const result = yield this.db.execute(description === '0' ? queries_1.getVideosWithoutDescription : database_1.getVideos);
                 return (0, index_1.dataFound)([...new Map(result === null || result === void 0 ? void 0 : result.map((item) => [item[key], item])).values()]);
             }
             catch (ex) {

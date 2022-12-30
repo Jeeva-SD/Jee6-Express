@@ -8,7 +8,7 @@ export class YoutubeController {
 
     @Get('/video/list')
     public async getVideoList(req: any, res: any) {
-        const data = await this.getInstance().list();
+        const data = await this.getInstance().list(req.query);
         res.send(data);
     }
 

@@ -22,7 +22,7 @@ let YoutubeController = class YoutubeController {
     constructor() { }
     getVideoList(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield this.getInstance().list();
+            const data = yield this.getInstance().list(req.query);
             res.send(data);
         });
     }

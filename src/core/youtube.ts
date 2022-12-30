@@ -1,4 +1,5 @@
 import { DB, getVideos, getTrending, getTrendingIds, getTotalVideoCount } from '../database';
+import { getVideosWithoutDescription } from '../database/queries';
 import { generateUrl } from '../helper';
 import { dataFound, dataNotFound } from './../lib/result/index';
 
@@ -8,10 +9,11 @@ export class Youtube {
         this.db = new DB
     }
 
-    public async list() {
+    public async list(params: any) {
         try {
+            const { description } = params;
             const key = 'videoId';
-            const result: any = await this.db.execute(getVideos);
+            const result: any = await this.db.execute(description === '0' ? getVideosWithoutDescription : getVideos);
 
             return dataFound([...new Map(result?.map((item: any) => [item[key], item])).values()]);
         } catch (ex) {
