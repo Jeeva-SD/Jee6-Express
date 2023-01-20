@@ -10,7 +10,8 @@
   "author": "jee6",
   "license": "ISC",
   "dependencies": {
-    "@decorators/express": "^2.7.0",
+    "@decorators/di": "^1.0.2",
+    "@decorators/express": "2.3.0",
     "@types/cors": "^2.8.13",
     "cors": "^2.8.5",
     "express": "^4.18.2",
