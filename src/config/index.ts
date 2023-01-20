@@ -1,10 +1,10 @@
 export const PORT = process.env.PORT || 6040;
 
 export const databaseCredentials = {
-    host: '191.101.229.58',
-    user: 'demoUser',
-    password: 'demoUser',
+    host: '194.163.40.154',
+    user: 'jee6',
+    password: 'awdsawdS@jee6.in',
     port: 3306,
-    database: 'demo',
+    database: 'youtube',
     connectionLimit: 10,
 };
