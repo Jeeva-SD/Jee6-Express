@@ -1,4 +1,4 @@
-import { Controller, Get } from '@decorators/express';
+import { Controller, Get, Query } from '@decorators/express';
 import { Youtube } from '../core/youtube'
 
 @Controller('/youtube')
@@ -15,6 +15,12 @@ export class YoutubeController {
     @Get('/video/trending')
     public async getTrending(req: any, res: any) {
         const data = await this.getInstance().trending();
+        res.send(data);
+    }
+
+    @Get('/video/tag')
+    public async getTags(req: any, res: any) {
+        const data = await this.getInstance().getTags(req.query);
         res.send(data);
     }
 

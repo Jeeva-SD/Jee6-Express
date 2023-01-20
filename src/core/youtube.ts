@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { DB, getVideos, getTrending, getTrendingIds, getTotalVideoCount } from '../database';
 import { getVideosWithoutDescription } from '../database/queries';
 import { generateUrl } from '../helper';
@@ -43,6 +44,15 @@ export class Youtube {
             const urls = videos.map((video: any) => generateUrl(video?.title));
 
             return urls;
+        } catch (ex) {
+            return dataNotFound([]);
+        }
+    }
+
+    public async getTags(params: any) {
+        try {
+            const result: any = await axios.get(`https://rapidtags.io/api/generator?query=${params.q}&type=Google`);
+            return result.data.tags;
         } catch (ex) {
             return dataNotFound([]);
         }
